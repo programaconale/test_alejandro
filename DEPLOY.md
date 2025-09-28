@@ -113,21 +113,34 @@ https://TU_USUARIO-test-alejandro-marcano.streamlit.app
 
 ## Configuración Adicional
 
-### Archivo .streamlit/config.toml (opcional)
+### Archivo .streamlit/config.toml (incluido)
 
-Crea la carpeta `.streamlit/` y el archivo `config.toml` para personalizar la app:
+El proyecto incluye configuración personalizada de Streamlit:
 
 ```toml
 [theme]
-primaryColor = "#FF6B6B"
-backgroundColor = "#FFFFFF"
-secondaryBackgroundColor = "#F0F2F6"
-textColor = "#262730"
+# Optional: Custom theme colors (commented out)
 
 [server]
 headless = true
 port = 8501
+
+[browser]
+gatherUsageStats = false
+
+[client]
+showErrorDetails = false
+toolbarMode = "minimal"
+
+[ui]
+hideTopBar = true
 ```
+
+**Características:**
+- **Oculta elementos de Streamlit**: Fork button, GitHub links, "Made with Streamlit"
+- **Toolbar mínimo**: Interfaz más limpia
+- **Sin estadísticas**: No envía datos de uso a Streamlit
+- **Top bar oculto**: Más espacio para contenido
 
 ### Secrets Management
 

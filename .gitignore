@@ -95,3 +95,4 @@ Thumbs.db
 
 # Streamlit
 .streamlit/secrets.toml
+# Keep config.toml but ignore secrets

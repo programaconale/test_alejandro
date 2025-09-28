@@ -13,8 +13,84 @@ st.set_page_config(
     layout="wide"
 )
 
-# Add Leadtech logo
-st.sidebar.image("https://leadtech.com/user/themes/leadtech/assets/images/logo/logo-leadtech-1.svg", width=200)
+# Hide Streamlit default elements
+hide_streamlit_style = """
+<style>
+/* Hide the fork button */
+.css-1jc7ptx, .e1ewe7hr3, .viewerBadge_container__1QSob,
+.styles_viewerBadge__1yB5_, .viewerBadge_link__1S137,
+.viewerBadge_text__1JaDK {
+    display: none !important;
+}
+
+/* Hide "Made with Streamlit" */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* Hide the hamburger menu */
+.css-9s5bis.edgvbvh3 {
+    display: none;
+}
+
+/* Hide "Deploy" button */
+.css-1rs6os.edgvbvh3 {
+    display: none;
+}
+
+/* Hide GitHub icon and fork button */
+.css-1544g2n.e1fqkh3o4 {
+    display: none;
+}
+
+/* Hide the entire header bar if needed */
+.css-18e3th9 {
+    padding-top: 0rem;
+}
+
+/* Additional selectors for different Streamlit versions */
+.stDeployButton {display: none;}
+.deployButton {display: none;}
+</style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+# Add Leadtech logo (adaptive to theme)
+def get_leadtech_logo():
+    """Get appropriate Leadtech logo based on Streamlit theme"""
+    return """
+    <style>
+    .leadtech-logo-light {
+        display: block;
+    }
+    .leadtech-logo-dark {
+        display: none;
+    }
+    @media (prefers-color-scheme: dark) {
+        .leadtech-logo-light {
+            display: none;
+        }
+        .leadtech-logo-dark {
+            display: block;
+        }
+    }
+    /* Streamlit dark theme detection */
+    [data-theme="dark"] .leadtech-logo-light {
+        display: none;
+    }
+    [data-theme="dark"] .leadtech-logo-dark {
+        display: block;
+    }
+    </style>
+    <div>
+        <img src="https://leadtech.com/user/themes/leadtech/assets/images/logo/logo-leadtech-1.svg" 
+             class="leadtech-logo-light" width="200" alt="Leadtech Logo">
+        <img src="https://leadtech.com/user/themes/leadtech/assets/images/logo/logo-leadtech-light.svg" 
+             class="leadtech-logo-dark" width="200" alt="Leadtech Logo Light">
+    </div>
+    """
+
+st.sidebar.markdown(get_leadtech_logo(), unsafe_allow_html=True)
 st.sidebar.markdown("---")
 
 st.markdown("# Test 2: Instagram Reels")
