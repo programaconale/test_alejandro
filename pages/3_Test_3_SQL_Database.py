@@ -61,33 +61,33 @@ def get_leadtech_logo():
     """Get appropriate Leadtech logo based on Streamlit theme"""
     return """
     <style>
-    .leadtech-logo-light {
+    .leadtech-logo-for-light {
         display: block;
     }
-    .leadtech-logo-dark {
+    .leadtech-logo-for-dark {
         display: none;
     }
     @media (prefers-color-scheme: dark) {
-        .leadtech-logo-light {
+        .leadtech-logo-for-light {
             display: none;
         }
-        .leadtech-logo-dark {
+        .leadtech-logo-for-dark {
             display: block;
         }
     }
     /* Streamlit dark theme detection */
-    [data-theme="dark"] .leadtech-logo-light {
+    [data-theme="dark"] .leadtech-logo-for-light {
         display: none;
     }
-    [data-theme="dark"] .leadtech-logo-dark {
+    [data-theme="dark"] .leadtech-logo-for-dark {
         display: block;
     }
     </style>
     <div>
         <img src="https://leadtech.com/user/themes/leadtech/assets/images/logo/logo-leadtech-1.svg" 
-             class="leadtech-logo-light" width="200" alt="Leadtech Logo">
+             class="leadtech-logo-for-light" width="200" alt="Leadtech Logo Dark">
         <img src="https://leadtech.com/user/themes/leadtech/assets/images/logo/logo-leadtech-light.svg" 
-             class="leadtech-logo-dark" width="200" alt="Leadtech Logo Light">
+             class="leadtech-logo-for-dark" width="200" alt="Leadtech Logo Light">
     </div>
     """
 
